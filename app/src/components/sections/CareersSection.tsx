@@ -260,8 +260,10 @@ export function CareersSection() {
               <form onSubmit={handleSubmit} className="space-y-3 lg:space-y-4 mt-4">
                 <div className="grid grid-cols-2 gap-3 lg:gap-4">
                   <div>
-                    <label className="micro-label text-charcoal/50 mb-1 block text-xs">FIRST NAME</label>
+                    <label htmlFor="firstName" className="micro-label text-charcoal/50 mb-1 block text-xs">FIRST NAME</label>
                     <input
+                      id="firstName"
+                      name="firstName"
                       type="text"
                       required
                       value={formData.firstName}
@@ -270,8 +272,10 @@ export function CareersSection() {
                     />
                   </div>
                   <div>
-                    <label className="micro-label text-charcoal/50 mb-1 block text-xs">LAST NAME</label>
+                    <label htmlFor="lastName" className="micro-label text-charcoal/50 mb-1 block text-xs">LAST NAME</label>
                     <input
+                      id="lastName"
+                      name="lastName"
                       type="text"
                       required
                       value={formData.lastName}
@@ -282,24 +286,32 @@ export function CareersSection() {
                 </div>
 
                 <div>
-                  <label className="micro-label text-charcoal/50 mb-1 block text-xs">EMAIL</label>
+                  <label htmlFor="email" className="micro-label text-charcoal/50 mb-1 block text-xs">EMAIL</label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     className="w-full px-2.5 lg:px-3 py-2 border border-charcoal/20 text-charcoal text-sm focus:border-gold focus:outline-none"
+                    title="Enter your email address"
+                    placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="micro-label text-charcoal/50 mb-1 block text-xs">PHONE</label>
+                  <label htmlFor="phone" className="micro-label text-charcoal/50 mb-1 block text-xs">PHONE</label>
                   <input
+                    id="phone"
+                    name="phone"
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                     className="w-full px-2.5 lg:px-3 py-2 border border-charcoal/20 text-charcoal text-sm focus:border-gold focus:outline-none"
+                    title="Enter your phone number"
+                    placeholder="(555) 123-4567"
                   />
                 </div>
 
@@ -312,6 +324,11 @@ export function CareersSection() {
                       onChange={handleFileChange}
                       className="hidden"
                       id="resume-upload"
+                      name="resume"
+                      title="Upload your resume in PDF or DOC format"
+                      aria-label="Upload resume file"
+                      aria-describedby="resume-label"
+                      required
                     />
                     <label
                       htmlFor="resume-upload"
@@ -320,12 +337,15 @@ export function CareersSection() {
                       <Upload className="w-4 h-4" />
                       <span className="truncate">{resumeFile ? resumeFile.name : 'Choose file'}</span>
                     </label>
+                    <span id="resume-label" className="sr-only">Resume upload (required)</span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="micro-label text-charcoal/50 mb-1 block text-xs">WHY SAVOR & SAGE?</label>
+                  <label htmlFor="message" className="micro-label text-charcoal/50 mb-1 block text-xs">WHY SAVOR & SAGE?</label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={3}
                     required
                     placeholder="Tell us why you'd be a great fit..."
