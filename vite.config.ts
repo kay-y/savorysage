@@ -6,6 +6,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
+  // Serve static assets from app/public so image paths like /images/* work
+  publicDir: 'app/public',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
